@@ -44,7 +44,7 @@ public final class UninstallCommand {
         this.installer = installer;
     }
 
-    @Command("uninstall")
+    @Command(aliases = "uninstall", permission = "pickaxe.command")
     public void uninstall(@Source CommandSource src, @Alias("plugin") String plugin) throws CommandException {
         String[] parts = plugin.split("/");
         if (parts.length > 2) {

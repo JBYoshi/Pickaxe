@@ -50,7 +50,7 @@ public final class UpdateCommand {
         this.installer = installer;
     }
 
-    @Command({"update", "upgrade"})
+    @Command(aliases = {"update", "upgrade"}, permission = "pickaxe.command")
     public void update(@Source CommandSource source, @Alias("plugins") @AllRemaining Set<String> plugins)
             throws CommandException {
         Set<PluginContainer> toUpdate = new HashSet<>();

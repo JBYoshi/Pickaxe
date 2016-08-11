@@ -40,7 +40,7 @@ public final class StatusCommand {
         this.installer = installer;
     }
 
-    @Command("status")
+    @Command(aliases = "status", permission = "pickaxe.command")
     public void status(@Source CommandSource src) {
         Map<String, OreVersion> toInstall = installer.getToInstall().values().stream()
                 .collect(Collectors.toMap(e -> e.getProject().getPluginId(), Function.identity()));

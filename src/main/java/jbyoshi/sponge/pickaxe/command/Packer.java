@@ -185,7 +185,7 @@ public interface Packer {
 
     static Packer allRemaining(Packer packer) {
         if (!packer.allowMultipleValues()) {
-            throw new IllegalArgumentException("Packer only allows one value, may not have @AllRemaining");
+            throw new IllegalArgumentException("Packer only allows one aliases, may not have @AllRemaining");
         }
         return new Packer() {
             @Override

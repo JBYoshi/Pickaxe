@@ -46,7 +46,7 @@ public final class InstallCommand {
         this.installer = installer;
     }
 
-    @Command("install")
+    @Command(aliases = "install", permission = "pickaxe.command")
     public void install(@Source CommandSource src, @Alias("plugin") String plugin) throws CommandException {
         String[] parts = plugin.split("/");
         if (parts.length > 2) {

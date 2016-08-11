@@ -27,7 +27,6 @@ import org.spongepowered.api.Sponge;
 import org.spongepowered.api.command.CommandSource;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -39,7 +38,7 @@ public final class YesCommand {
         YesCommand.plugin = plugin;
     }
 
-    @Command("yes")
+    @Command(aliases = "yes", permission = "pickaxe.command")
     public void command(@Source CommandSource source) {
         if (tasks.containsKey(source)) {
             tasks.remove(source).run();

@@ -61,7 +61,7 @@ public final class CommandHelper {
             Command command = method.getAnnotation(Command.class);
             if (command != null) {
                 try {
-                    String[] aliases = command.value();
+                    String[] aliases = command.aliases();
                     List<ParameterElement> arguments = new ArrayList<>();
                     for (Parameter param : method.getParameters()) {
                         try {
@@ -82,6 +82,7 @@ public final class CommandHelper {
                     register.accept(CommandSpec.builder()
                             .arguments(arguments.stream().map(e -> e.element).filter(e -> e != null)
                                     .collect(ToArrayCollector.of(CommandElement.class)))
+                            .permission(command.permission() == "" ? null : command.permission())
                             .executor((src, args) -> {
                                 try {
                                     Object out = method.invoke(obj, arguments.stream().map(arg -> arg.getValue(src, args))

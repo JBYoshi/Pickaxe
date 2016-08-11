@@ -43,7 +43,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-@Plugin(id = "pickaxe", name = "Pickaxe", version = "1.0",
+@Plugin(id = "pickaxe", name = "Pickaxe", version = "1.0.1",
         description = "A Sponge plugin manager and unofficial Ore client.", authors = "JBYoshi",
         url = "https://ore-staging.spongepowered.org/JBYoshi/Pickaxe")
 public final class PickaxePlugin {
