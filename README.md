@@ -1,4 +1,4 @@
-# Pickaxe
+# ![](https://github.com/JBYoshi/Pickaxe/raw/master/pickaxe.png) Pickaxe
 Pickaxe is a [Sponge](https://www.spongepowered.org) plugin manager and unofficial [Ore](https://ore-staging.spongepowered.org) client.
 
 ## Disclaimer
