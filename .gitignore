@@ -1,0 +1,33 @@
+# IntelliJ
+.idea
+*.iml
+out
+gen
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.externalToolBuilders/
+*.launch
+.classpath
+.factorypath
+.recommenders/
+
+# Gradle
+.gradle
+build/
+
+# Misc
+run/
+!run/.gitkeep
+
