@@ -2,10 +2,14 @@
 Pickaxe is a [Sponge](https://www.spongepowered.org) plugin manager and unofficial [Ore](https://ore-staging.spongepowered.org) client.
 
 ## Disclaimer
-At the moment, Ore is having some problems with files (see Ore issues [#134](https://github.com/SpongePowered/Ore/issues/134) and [#136](https://github.com/SpongePowered/Ore/issues/136)), so this plugin may not work as expected.
+At the moment, Ore is having some problems with files (see [SpongePowered/Ore#136](https://github.com/SpongePowered/Ore/issues/136)), so this plugin may not work as expected with certain plugins.
 
 ## Downloads
-Because of the current file issues with Ore, downloads are currently hosted on [GitHub](https://github.com/JBYoshi/Pickaxe/releases). They will be posted on Ore as soon as the issues are fixed.
+First-time download: [Download on Ore](https://ore-staging.spongepowered.org/JBYoshi/Pickaxe)
+
+To update: `/pickaxe update pickaxe` or `/pickaxe update JBYoshi/Pickaxe`
+
+[Backup downloads](https://github.com/JBYoshi/Pickaxe/releases)
 
 ## Commands
 `/pickaxe install <plugin>`: `<plugin>` should be either the ID of a plugin or the Ore name (you can find it in the top-left corner of the project's page on Ore; it looks like `<owner>/<name>`, e.g. `JBYoshi/Pickaxe`). You will need to restart the server to finish installing the plugin.
