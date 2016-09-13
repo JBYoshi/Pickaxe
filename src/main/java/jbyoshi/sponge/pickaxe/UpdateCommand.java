@@ -36,6 +36,7 @@ import org.spongepowered.api.plugin.PluginContainer;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -51,7 +52,7 @@ public final class UpdateCommand {
     }
 
     @Command(aliases = {"update", "upgrade"}, permission = "pickaxe.command")
-    public void update(@Source CommandSource source, @Alias("plugins") @AllRemaining Set<String> plugins)
+    public void update(@Source CommandSource source, @Alias("plugins") @AllRemaining LinkedHashSet<String> plugins)
             throws CommandException {
         Set<PluginContainer> toUpdate = new HashSet<>();
         if (!plugins.isEmpty()) {

@@ -166,12 +166,12 @@ public interface Packer {
         if (type instanceof GenericArrayType) {
             Type componentType = ((GenericArrayType) type).getGenericComponentType();
             if (componentType instanceof ParameterizedType) {
-                componentType = ((ParameterizedType) componentType).getOwnerType();
+                componentType = ((ParameterizedType) componentType).getRawType();
             }
             return Packer.array((Class<?>) componentType);
         }
         if (type instanceof ParameterizedType) {
-            Class<?> clazz = (Class<?>) ((ParameterizedType) type).getOwnerType();
+            Class<?> clazz = (Class<?>) ((ParameterizedType) type).getRawType();
             if (clazz.isArray()) {
                 return Packer.array(clazz.getComponentType());
             } else if (Collection.class.isAssignableFrom(clazz)) {

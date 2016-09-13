@@ -37,7 +37,7 @@ final class OreProjectImpl implements OreProject {
     @SuppressWarnings("unused")
     private String name;
     @SuppressWarnings("unused")
-    private RecommendedVersion recommended;
+    private OreVersionImpl recommended;
 
     @Override
     public String getPluginId() {
@@ -66,27 +66,6 @@ final class OreProjectImpl implements OreProject {
                 OreVersionImpl.class);
         version.ifPresent(v -> v.project = this);
         return version;
-    }
-
-    private static final class RecommendedVersion implements OreVersion {
-        @SuppressWarnings("unused")
-        private String version;
-        private transient OreProjectImpl project;
-
-        @Override
-        public String getVersion() {
-            return version;
-        }
-
-        @Override
-        public OreProject getProject() {
-            return project;
-        }
-
-        @Override
-        public Optional<Download> download() throws IOException {
-            return Optional.of(project.download(this));
-        }
     }
 
     Download download(OreVersion version) throws IOException {

@@ -28,22 +28,29 @@ import jbyoshi.sponge.pickaxe.ore.local.LocalOreRepository;
 import jbyoshi.sponge.pickaxe.ore.remote.OreRepositoryImpl;
 import org.slf4j.Logger;
 import org.spongepowered.api.Sponge;
+import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.dispatcher.SimpleDispatcher;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameInitializationEvent;
+import org.spongepowered.api.event.game.state.GameStartedServerEvent;
 import org.spongepowered.api.event.game.state.GameStoppedEvent;
+import org.spongepowered.api.event.network.ClientConnectionEvent;
 import org.spongepowered.api.plugin.Plugin;
 import org.spongepowered.api.text.Text;
+import org.spongepowered.api.text.action.TextActions;
 import org.spongepowered.api.text.channel.MessageReceiver;
 import org.spongepowered.api.text.format.TextColors;
+import org.spongepowered.api.text.format.TextStyles;
 
 import javax.inject.Inject;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-@Plugin(id = "pickaxe", name = "Pickaxe", version = "1.0.1",
+@Plugin(id = "pickaxe", name = "Pickaxe", version = "1.1",
         description = "A Sponge plugin manager and unofficial Ore client.", authors = "JBYoshi",
         url = "https://ore-staging.spongepowered.org/JBYoshi/Pickaxe")
 public final class PickaxePlugin {
@@ -85,6 +92,39 @@ public final class PickaxePlugin {
         } catch (IOException e) {
             logger.error("Could not finalize plugin installation and uninstallation: " + e);
         }
+    }
+
+    @Listener
+    public void sendSupersededMessage(GameStartedServerEvent event) {
+        sendSupersededMessage(Sponge.getServer().getConsole());
+    }
+
+    @Listener
+    public void maybeSendSupersededMessage(ClientConnectionEvent.Join event) {
+        if (event.getTargetEntity().hasPermission("pickaxe.command")) {
+            sendSupersededMessage(event.getTargetEntity());
+        }
+    }
+
+    private void sendSupersededMessage(CommandSource target) {
+        try {
+            target.sendMessage(Text.of(TextColors.BLUE, "Pickaxe has been superseded by an ",
+                    Text.of(TextActions.openUrl(new URL("https://ore-staging.spongepowered.org/windy/Ore")),
+                            TextActions.showText(Text.of("View on Ore")),
+                            TextColors.AQUA, TextStyles.UNDERLINE, "official Ore client plugin"), "."));
+        } catch (MalformedURLException e) {
+            throw new AssertionError(e);
+        }
+        target.sendMessage(Text.of(TextColors.BLUE, "The official plugin works with the ",
+                TextColors.AQUA, "same commands as Pickaxe", TextColors.BLUE, " (except you need to use /ore instead of /pickaxe), but has ",
+                TextColors.AQUA, "many more features", TextColors.BLUE, " and is mantained by the ",
+                TextColors.AQUA, "same developers as the Ore website", TextColors.BLUE, "."));
+        target.sendMessage(Text.of(TextColors.BLUE, "To install it, run the following commands:"));
+        target.sendMessage(Text.of(TextColors.AQUA, "    /pickaxe install ore"));
+        target.sendMessage(Text.of(TextColors.AQUA, "    /pickaxe uninstall pickaxe"));
+        target.sendMessage(Text.of(TextColors.BLUE, "Then restart the server."));
+        target.sendMessage(Text.of());
+        target.sendMessage(Text.of(TextColors.BLUE, "Thanks for using Pickaxe, and here's to a great future with a standard, official Ore plugin!"));
     }
 
     void printException(MessageReceiver receiver, IOException e) {
