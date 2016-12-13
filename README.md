@@ -1,14 +1,11 @@
 # Important Announcement
-**I am no longer going to be supporting Pickaxe after this version.** Windy, the Ore developer, has released an [official Ore client](https://ore-staging.spongepowered.org/windy/Ore).
+**I am no longer going to be supporting Pickaxe after this version.** There is now an [official Ore client](https://github.com/SpongePowered/OrePlugin).
 
-Pickaxe does not store any data. You can migrate to the official plugin via Pickaxe itself, although there may be problems when doing so.
-1. Type `/pickaxe install ore`.
-2. Type `/pickaxe yes`.
-3. Type `/pickaxe uninstall pickaxe`.
-4. Type `/pickaxe yes`.
-5. Restart the server.
+Ore is also changing to a new website. It is currently down for migration, so **Pickaxe does not currently work.** After it comes back up at the new location, **I cannot guarantee Pickaxe will begin working again.**
 
-If something goes wrong, delete Pickaxe from your `mods` folder and install the official plugin manually (see the link above). Thanks for using Pickaxe, and here's to a great future with a standard, official Ore plugin!
+Pickaxe does not store any data, so migration should be seamless. Note, however, that because the Ore website is down, the official plugin cannot currently be downloaded.
+
+Thanks for using Pickaxe, and here's to a great future with a standard, official Ore plugin!
 
 ## Old description
 # ![](https://github.com/JBYoshi/Pickaxe/raw/master/pickaxe.png) Pickaxe
